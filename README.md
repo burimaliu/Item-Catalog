@@ -30,7 +30,7 @@ Or use "pg_config.sh" to have them installed into your environment.
 
 1. Clone this repository to your working directory
 2. Make sure none of requirements above is missing
-3. From your working directory run "sh init.sh"
+3. From your working directory run "sh init.sh" (it will populate your database with sample data and run application.py for you :))
 
 That's it, you should see on your console something like: Running on http://0.0.0.0:8000/
 
