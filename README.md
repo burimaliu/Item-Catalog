@@ -8,21 +8,21 @@ It provides a list of items(music list) with categories and registration/authent
 
 ###Requirements to run this application:
 
-alembic==0.7.4
-Flask==0.10.1
-Flask-Migrate==1.3.0
-Flask-Script==2.0.5
-Flask-SQLAlchemy==2.0
-Flask-OAuthlib=0.9.1
-Flask-flask-wtf
-gunicorn==19.2.1
-itsdangerous==0.24
-Jinja2==2.7.3
-Mako==1.0.1
-MarkupSafe==0.23
-requests==2.5.1
-SQLAlchemy==0.9.8
-Werkzeug==0.10.1
+1. alembic==0.7.4
+2. Flask==0.10.1
+3. Flask-Migrate==1.3.0
+4. Flask-Script==2.0.5
+5. Flask-SQLAlchemy==2.0
+6. Flask-OAuthlib=0.9.1
+7. Flask-flask-wtf
+8. gunicorn==19.2.1
+9. itsdangerous==0.24
+10. Jinja2==2.7.3
+11. Mako==1.0.1
+12. MarkupSafe==0.23
+13. requests==2.5.1
+14. SQLAlchemy==0.9.8
+15. Werkzeug==0.10.1
 
 Or use "pg_config.sh" to have them installed into your environment.
 
