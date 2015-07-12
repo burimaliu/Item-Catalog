@@ -1,0 +1,67 @@
+{% extends "main.html" %}
+{% block content %}
+  <h4 class="red-text text-lighten-1">{{title}}</h4>
+  <form class="col s12" id="music-form" name="music-form" method="POST" action="{{form_action}}">
+   <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+    <div class="row">
+    <div class="input-field col s12">
+     
+      <input class="validate" id="music_title" name="music_title" type="text" value="{{music.title}}" autofocus required>
+       <label data-error="Enter title" data-success="Correct!" for="music_title">Music Title</label>
+    </div>
+    </div>
+
+     <div class="row">
+    <div class="input-field col s12">
+      <input class="validate" id="thumbnail_url" name="thumbnail_url" type="url" value="{{music.thumbnail_url}}" required>
+         <label data-error="Enter URL" data-success="Correct!" for="thumbnail_url">Thumbnail URL</label>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="input-field col s12">
+      <input class="validate" id="youtube_url" name="youtube_url" type="url" value="{{music.youtube_url}}" required>
+      <label data-error="Enter URL" data-success="Correct!" for="youtube_url">Yotube URL</label>
+    </div>
+    </div>
+
+     <div class="row">
+    <div class="input-field col s12">
+      <select name="music_category" id="music_category" form="music-form" class="validate" required>
+        <option {% if not music.featured %}selected{% endif %}></option>
+        {% for category in categories %}
+          <option value="{{category.id}}" {% if category.id == music.category_id %}selected{% endif %}>{{category.name}}</option>
+        {% endfor %}
+      </select>
+        <label data-error="Select category" data-success="Correct!" for="music_category">Category</label>
+    </div>
+    </div>
+
+     <div class="row">
+    <div class="input-field col-md-12">
+      <textarea  class="materialize-textarea validate" id="music_description" name="music_description" rows="4">{{music.description}}</textarea>
+      <label data-error="Enter description" data-success="Correct!" for="music_description">Music Description</label>
+    </div>
+    </div>
+
+     <div class="row">
+    <div class="switch">
+     Featured Music ?
+    <label>
+
+      <input name="featured" type="checkbox" {% if music.featured %}checked{% endif %}>
+      <span class="lever"></span>
+
+    </label>
+  </div>
+
+    </div>
+
+     <div class="row">
+    <div class="input-field col-md-12">
+      <input type="submit" class="btn btn-success pull-right">
+    </div>
+    </div>
+
+  </form>
+{% endblock %}

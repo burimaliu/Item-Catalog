@@ -1,0 +1,39 @@
+{% extends "main.html" %}
+{% block content %}
+
+
+{% if logged_in() %}
+  
+
+   <div class="grid-example col s12" style="padding-right:0; margin:20px 0">
+   <span style="padding:5px; font-weight: 300;font-size: 0.8rem;color: #fff;background-color: #26a69a; border-radius: 2px;">{{ count }} items</span>
+   <a href="{{url_for('new_music')}}" class="waves-effect waves-light btn right">Add new music
+    <i class="material-icons">send</i>
+  </a>
+  </div>
+
+  {% endif %}
+
+  <ul class="collection">
+
+   {% for music in musics %}
+          <li class="collection-item avatar">
+
+           <a  href="{{url_for('view_music', music_id=music.id)}}">
+            <img src="{{music.thumbnail_url}}" alt="" class="circle">
+            <span class="title blue-text">{{music.title}}</span>
+            <p style="width: 90%;" class="grey-text text-darken-2"><span style="padding:5px; font-weight: 300;font-size: 0.8rem;color: #fff;background-color: #26a69a; border-radius: 2px;">{{ music.category.name }} </span></p>
+            {% if music.featured %}
+            <a href="#!" class="secondary-content">Featured <i class="material-icons">grade</i></a>
+            {% endif %}
+            {% if editable(music) %}
+              <p>Added by you</p>
+            {% endif %}
+
+            </a>
+          </li>
+  {% endfor %}
+
+    </ul>
+
+{% endblock %}
